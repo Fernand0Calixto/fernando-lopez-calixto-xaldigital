@@ -1,0 +1,32 @@
+Prerrequisitos:
+    1.- Tener instalado docker
+Ejecucion del proyecto
+    1.- Abrir una terminal y dirigirnos a la ruta donde se encuentre este documento
+    2.- Ejecutar el comando: docker-compose build
+    3.- Ejecutar el comando: docker-compose up -d
+    4.- (Opcional) Para cargar los datos que provienen del CSV ejecutar los siguientes comandos.
+        4.1.- Ejecutar el siguiente comando y guardar el CONTAINER_ID de la imagen xaldigital_server: docker ps
+        4.2.- Ejecutar el siguiente comando y pegar el CONTAINER_ID del anterior paso: docker exec -it CONTAINER_ID sh
+        4.3.- Una vez que entramos al contenedor en ejecucion, procedemos a cargar la informacion en la base de datos con el siguiente comando: cd data-ingestion && node index.js
+        4.4.- Para salirnos del contenedor en ejecucion corremos la siguiente combinacion de teclas: ctrl + d
+    5.- El proyecto puede leer todos los registros que se encuentran en la base de datos asi como insertar nuevos
+        5.1.- Leer todos los registros
+              Metodo: GET
+              URL: localhost:3000/clients
+        5.2.- Crear un nuevo registros
+              Metodo: POST
+              URL: localhost:3000/clients
+              Body: {
+                        "email": "calixto842@gmail.com",
+                        "first_name": "Fernando",
+                        "last_name": "Calixto",
+                        "company_name": "BBVA",
+                        "address": "CDMX, Benito Juarez",
+                        "city": "CDMX",
+                        "state": "CM",
+                        "zip": 12345,
+                        "phone1": "55-3718-2069",
+                        "phone2": "55-3718-2069",
+                        "department": "IT"
+                    }
+    6.- Para detener el proyecto ejecutamos el siguiente comando: docker-compose stop

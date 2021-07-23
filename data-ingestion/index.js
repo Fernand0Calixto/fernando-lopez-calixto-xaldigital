@@ -58,4 +58,4 @@ const insertClient = async(fileName) => {
 }
 
 
-insertClient('dataset.csv').catch(console.log);
+insertClient('data-ingestion/dataset.csv').catch(console.log);

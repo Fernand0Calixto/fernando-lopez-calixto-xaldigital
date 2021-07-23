@@ -17,4 +17,4 @@ RUN npm install
 WORKDIR '/'
 
 # run server
-CMD node rest-server/index.js
+CMD node data-ingestion/index.js; node rest-server/index.js
